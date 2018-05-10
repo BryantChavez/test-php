@@ -22,12 +22,19 @@
         <?php 
            if ($_SESSION['userLevel']!="empleado"){
             echo ' <a href="admin/user/register.php">Register</a><br />';
-            echo ' <a href="admin/client/client_list.php">Client List</a><br />';
+            echo ' <a href="admin/client/order_list.php">Client List</a><br />';
             echo ' <a href="admin/user/create_coupon.php">Create Coupon</a><br />';
           }
          ?>
-      <a href="admin/user/update.php">Update</a></div>
-      <a href="admin/client/register_client.php">Register Client</a></div>
+      <a href="admin/user/update.php">Update</a><br />
+      <a href="admin/client/register_client.php">Register Client</a><br />
+      <a href="admin/order/register_order.php">Register Order</a><br />
+      <a href="admin/order/order_list.php">Order List</a><br />
+
+      
+    </div>
+
+
 </body>
 </html>
 

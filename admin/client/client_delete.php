@@ -49,7 +49,7 @@ if(isset($_POST['sent'])) {
 
       //si todo salio bien, redirigimos al usuario al panel
       if($resQueryUserDelete){
-        header("Location: client_list.php?deletedUser=true");
+        header("Location: order_list.php?deletedUser=true");
       }
 }
 ?>

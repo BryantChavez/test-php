@@ -1,3 +1,4 @@
+
 <?php
 //redirect to index
  if(!isset($_SESSION)) {
@@ -62,32 +63,35 @@ if(isset($_POST['sent'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Sitio/css/style.css">
+    <meta charset="UTF-8"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log in</title>
-    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-        <form action="login.php" method="post">
-            <?php 
-                if(isset($error)) printMsg("The field User/Password are incorrect.","error");
-                if(isset($_GET['error']) && $_GET['error'] == "2") printMsg("You can't access this resource without logging in first or without the required privileges.","announce");
-            ?>
-            <div class="field">
-                <label for="user">User</label>
-                <input type="text" name="user" <?php if(isset($_POST['user'])) echo 'value="'.$_POST['user'].'"';?> placeholder="Ej. HarryStyles">
-            
-                <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Ej. 12Three!">
-            </div>
-            <button type="submit" name="sent">Log In</button>
-            <tr><h1><a href="register.php">Register</a></h1></tr>
-        </form>
-    </div>
+<body style="background-color:#89CCCC">
+<form class="form-signin form-top" id='form-top'>
+    <?php 
+        if(isset($error)) printMsg("The field User/Password are incorrect.","error");
+        if(isset($_GET['error']) && $_GET['error'] == "2") printMsg("You can't access this resource without logging in first or without the required privileges.","announce");
+    ?>
+      <img class="imagen-log" src="Sitio/img/icons/firstlog.png" alt="" width="200" height="200">
+      <label for="inputEmail"  <?php if(isset($_POST['user'])) echo 'value="'.$_POST['user'].'"';?>></label>
+      <input type="email" id="inputEmail" class="form-control col-md-3 offset-md-4" placeholder="Email address" required autofocus>
+      <input type="password" id="inputPassword" class="form-control col-md-3 offset-md-4" placeholder="Password" required>
+      <div class="checkbox mb-3">
+      </div>
+      <button class=" btn-lg btn-primary btn-block col-md-3 offset-md-4" style='background-color:orange; border-color:orange;' type="submit">Sign in</button>
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
 
 <?php
   if (isset($resQueryValidateUser)) mysql_free_result($resQueryValidateUser);
 ?>
+
